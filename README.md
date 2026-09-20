@@ -23,6 +23,14 @@ ComfyUI는 8188 등의 다른 포트를 통해서 웹브라우저로 접속할 �
 comfy-api-proxy --comfyui http://127.0.0.1:8188 --port 8189
 ```
 
+## 원격 접속이 가능하도록 만들기
+
+[CLI Reference](https://github.com/Comfy-Org/comfy-api-proxy#cli-reference)에 따라 `--host`, `--token`, `--allow-insecure-bind` 등을 사용해주어야 한다. `--token`을 사용하는 것이 제일 안전하겠지만, 테스트를 편하게 하기 위해 `--allow-insecure-bind`를 사용할 수 있다. 예를 들어, 호스트의 IP 주소가 192.168.0.10 이었다면 명령어는 아래와 같다. 
+
+```bash
+comfy-api-proxy --comfyui http://127.0.0.1:8188 --port 8189 --allow-insecure-bind --host 192.168.0.10
+```
+
 ## 다른 이미지로 실험하기
 
 필요에 따라 `input` 디렉토리에 있는 `original.png`와 `reference.png` 파일을 변경하면 됩니다. 
