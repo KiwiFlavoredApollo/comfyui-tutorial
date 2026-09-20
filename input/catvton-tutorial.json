@@ -1,0 +1,237 @@
+{
+  "1": {
+    "inputs": {
+      "mask_grow": 25,
+      "mixed_precision": "fp16",
+      "seed": 896535368655329,
+      "steps": 25,
+      "cfg": 3.6,
+      "image": [
+        "42",
+        0
+      ],
+      "mask": [
+        "22",
+        0
+      ],
+      "refer_image": [
+        "52",
+        0
+      ]
+    },
+    "class_type": "CatVTONWrapper",
+    "_meta": {
+      "title": "CatVTON Wrapper"
+    }
+  },
+  "2": {
+    "inputs": {
+      "image": "clipspace-painted-masked-1789877170240.png [input]"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "7": {
+    "inputs": {
+      "image": "pasted/image (2).png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "8": {
+    "inputs": {
+      "images": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "15": {
+    "inputs": {
+      "model": "sam2_hiera_small.safetensors",
+      "segmentor": "single_image",
+      "device": "cuda",
+      "precision": "bf16"
+    },
+    "class_type": "DownloadAndLoadSAM2Model",
+    "_meta": {
+      "title": "(Down)Load SAM2Model"
+    }
+  },
+  "16": {
+    "inputs": {
+      "mask_opacity": 1,
+      "mask_color": "255, 0, 0",
+      "pass_through": false,
+      "image": [
+        "42",
+        0
+      ],
+      "mask": [
+        "37",
+        0
+      ]
+    },
+    "class_type": "ImageAndMaskPreview",
+    "_meta": {
+      "title": "ImageAndMaskPreview"
+    }
+  },
+  "19": {
+    "inputs": {
+      "images": [
+        "21",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "20": {
+    "inputs": {
+      "index": "1",
+      "batch": false,
+      "data": [
+        "21",
+        3
+      ]
+    },
+    "class_type": "Florence2toCoordinates",
+    "_meta": {
+      "title": "Florence2 Coordinates"
+    }
+  },
+  "21": {
+    "inputs": {
+      "text_input": [
+        "26",
+        0
+      ],
+      "task": "caption_to_phrase_grounding",
+      "fill_mask": true,
+      "keep_model_loaded": false,
+      "max_new_tokens": 1024,
+      "num_beams": 3,
+      "do_sample": true,
+      "output_mask_select": "",
+      "seed": 586807559634600,
+      "image": [
+        "42",
+        0
+      ],
+      "florence2_model": [
+        "23",
+        0
+      ]
+    },
+    "class_type": "Florence2Run",
+    "_meta": {
+      "title": "Florence2Run"
+    }
+  },
+  "22": {
+    "inputs": {
+      "keep_model_loaded": true,
+      "individual_objects": true,
+      "sam2_model": [
+        "15",
+        0
+      ],
+      "image": [
+        "42",
+        0
+      ],
+      "bboxes": [
+        "20",
+        1
+      ]
+    },
+    "class_type": "Sam2Segmentation",
+    "_meta": {
+      "title": "Sam2Segmentation"
+    }
+  },
+  "23": {
+    "inputs": {
+      "model": "microsoft/Florence-2-base",
+      "precision": "fp16",
+      "convert_to_safetensors": "sdpa"
+    },
+    "class_type": "DownloadAndLoadFlorence2Model",
+    "_meta": {
+      "title": "DownloadAndLoadFlorence2Model"
+    }
+  },
+  "26": {
+    "inputs": {
+      "text": "Upper Body"
+    },
+    "class_type": "JWString",
+    "_meta": {
+      "title": "String"
+    }
+  },
+  "37": {
+    "inputs": {
+      "expand": 50,
+      "tapered_corners": true,
+      "mask": [
+        "22",
+        0
+      ]
+    },
+    "class_type": "GrowMask",
+    "_meta": {
+      "title": "Grow Mask"
+    }
+  },
+  "42": {
+    "inputs": {
+      "image": "clipspace-painted-masked-1789877386956.png [input]"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "44": {
+    "inputs": {
+      "images": [
+        "42",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "51": {
+    "inputs": {
+      "image": "pasted/image (7).png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "52": {
+    "inputs": {
+      "image": "pasted/image (8).png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  }
+}
